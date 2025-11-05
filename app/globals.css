@@ -1,0 +1,346 @@
+:root {
+  --background: #050708;
+  --accent: #46c1ff;
+  --accent-soft: rgba(70, 193, 255, 0.18);
+  --muted: rgba(255, 255, 255, 0.6);
+  --foreground: #f8f9fb;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --shadow-glow: 0 20px 60px rgba(70, 193, 255, 0.12);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: radial-gradient(circle at top, rgba(70, 193, 255, 0.1), transparent 55%), var(--background);
+  color: var(--foreground);
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  line-height: 1.6;
+}
+
+main {
+  padding: 4rem 1.5rem 6rem;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 4.5rem;
+}
+
+.section h2 {
+  font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.section p {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.hero {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  width: max-content;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 55ch;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-cta button,
+.hero-cta a {
+  padding: 0.9rem 1.4rem;
+  border-radius: 0.9rem;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.hero-cta a.primary {
+  background: linear-gradient(135deg, var(--accent), #9de7ff);
+  color: #020304;
+  box-shadow: var(--shadow-glow);
+}
+
+.hero-cta a.secondary {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+}
+
+.hero-cta a:hover {
+  transform: translateY(-2px);
+}
+
+.story-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.story-card {
+  padding: 1.6rem;
+  border-radius: 1.3rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-glow);
+}
+
+.story-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.story-card p {
+  margin: 0;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  width: 2px;
+  background: linear-gradient(var(--accent), transparent);
+}
+
+.timeline-step {
+  position: relative;
+  padding-left: 1.7rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: -0.05rem;
+  top: 0.4rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-soft);
+}
+
+.timeline-step h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.timeline-step span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.highlight-card {
+  display: grid;
+  gap: 1.2rem;
+  padding: 2rem;
+  border-radius: 1.6rem;
+  background: linear-gradient(140deg, rgba(70, 193, 255, 0.14), rgba(12, 20, 32, 0.9));
+  border: 1px solid rgba(70, 193, 255, 0.35);
+}
+
+.highlight-card h3 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tag {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(70, 193, 255, 0.12);
+  color: var(--accent);
+  font-size: 0.85rem;
+  border: 1px solid rgba(70, 193, 255, 0.3);
+}
+
+footer {
+  padding: 3rem 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .story-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .hero-text {
+    grid-column: span 7;
+  }
+
+  .hero-profile {
+    grid-column: span 5;
+  }
+
+  .highlight-card {
+    grid-template-columns: 2fr 3fr;
+    align-items: center;
+  }
+}
+
+.hero-profile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 2rem;
+}
+
+.hero-profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.8rem;
+  background: radial-gradient(circle, rgba(70, 193, 255, 0.3), transparent 60%);
+  filter: blur(20px);
+  z-index: 1;
+}
+
+.hero-profile .profile-card {
+  position: relative;
+  z-index: 2;
+  padding: 2.2rem 1.9rem;
+  border-radius: 1.6rem;
+  background: rgba(12, 20, 32, 0.95);
+  border: 1px solid rgba(70, 193, 255, 0.25);
+  box-shadow: var(--shadow-glow);
+  text-align: center;
+}
+
+.hero-profile .profile-card .avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 999px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, rgba(70, 193, 255, 0.35), rgba(12, 20, 32, 1));
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.hero-profile .profile-card .tagline {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+blockquote {
+  margin: 0;
+  padding: 1.6rem;
+  background: var(--card-bg);
+  border-radius: 1.2rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+
+blockquote strong {
+  color: var(--foreground);
+}
+
+.journey-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .journey-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.experience-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.experience-item {
+  padding: 1rem 1.3rem;
+  border-radius: 1.1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.experience-item span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
